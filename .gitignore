@@ -1,0 +1,6 @@
+*.xml
+*.iml
+*.pyc
+error_log.txt
+website/settings/__init__.py
+website/settings/dev.py
