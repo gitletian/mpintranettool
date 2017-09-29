@@ -1,0 +1,37 @@
+{% extends 'common/base.html' %}
+{% block title %}登录{% endblock %}
+{% block body %}
+<div class="wrapper wrapper-content white-bg" style="min-height: 610px">
+    <div class="container">
+        <div class="row m-t-lg">
+            <div class="col-lg-7">
+                <img src="{{ STATIC_URL }}common/img/login.png">
+            </div>
+            <div class="col-lg-4 table-bordered blue-top">
+                <div class="m-t-lg m-l-lg m-r-lg">
+                    <div class="form-group">
+                        <label>用户名</label>
+                        <input name="username" type="text" placeholder="请输入用户名"/>
+                    </div>
+                    <div class="form-group">
+                        <label>密码</label>
+                        <input name="password" type="password" placeholder="请输入密码"/>
+                    </div>
+                    <div class="form-group">
+                        <label>验证码</label>
+                        <br/>
+                        <input name="code" type="text" placeholder="请输入验证码" style="width: 100px"/>
+                        <img class="cp" src="/account/code/" style="width: 150px; height: 44px" onclick="this.src='/account/code/?r='+Math.random();"/>
+                    </div>
+                    <div class="text-center" style="margin-top: 50px">
+                        <button id="btn_login" class="btn btn-sm btn-success" style="width: 100px"><strong>登&nbsp;&nbsp;&nbsp;&nbsp;录</strong></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{{ STATIC_URL }}apps/account/login.js?v={{ version }}"></script>
+{% endblock %}

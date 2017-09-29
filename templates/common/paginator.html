@@ -1,0 +1,26 @@
+{%if pagin.pages > 1%}
+    <div class="pagerbox" cur="{{pagin.page}}">
+        {%if pagin.has_prev %}
+            <a href="javascript:void(0)" page="{{pagin.prev_num}}" >上页</a>
+        {%endif%}
+        <a href="javascript:void(0)" page="1" {%if pagin.page == 1%}class="current_page"{%endif%}>首页</a>
+        {%for p in pagin.visible_pages%}
+            {%if p != 1 and p != pagin.pages%}
+                <a href="javascript:void(0)" page="{{ p }}" {%if pagin.page == p %}class="current_page"{%endif%}>{{p}}</a>
+            {%endif%}
+        {%endfor%}
+        <a href="javascript:void(0)" page="{{ pagin.pages }}" {%if pagin.page == pagin.pages%}class="current_page"{%endif%}>尾页</a>
+        {%if pagin.has_next %}
+            <a href="javascript:void(0)" page="{{pagin.next_num}}">下页</a>
+        {%endif%}
+        共{{ pagin.total }}条
+        每页
+        <select name="limit">
+            <option value="10"{% if pagin.perpage == 10 %} selected{% endif %}>10</option>
+            <option value="20"{% if pagin.perpage == 20 %} selected{% endif %}>20</option>
+            <option value="50"{% if pagin.perpage == 50 %} selected{% endif %}>50</option>
+            <option value="100"{% if pagin.perpage == 100 %} selected{% endif %}>100</option>
+        </select>
+        条
+    </div>
+{%endif%}

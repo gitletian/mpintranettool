@@ -1,0 +1,104 @@
+{#{% load filters %}#}
+{% block css %}
+
+{% endblock %}
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist" style="margin-bottom: 10px;" id="nav_tabs">
+  <li role="presentation" class="active"><a href="#av_diff_rage_occupy" role="tab" data-toggle="tab">平均差异率占比</a></li>
+  <li role="presentation"><a href="#diff_rage_curves" role="tab" data-toggle="tab">差异率曲线</a></li>
+</ul>
+
+<!-- content tab -->
+<div class="tab-content">
+    <!-- 平均差异率占比 -->
+    <div role="tabpanel" class="tab-pane active" id="av_diff_rage_occupy">
+        <div>
+            <span style="font-style: oblique">月度平均差异率占比</span>
+            <table class="table table-hover" style="margin: 15px 0px;">
+                <thead>
+                    <tr>
+                        <th>店铺名称</th>
+                        <th>平均单价</th>
+                        <th>商品数</th>
+                        <th>销售量</th>
+                        <th>销售额</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in month_ragezb_data %}
+                    <tr>
+                        <td>{{ item.shopname }}</td>
+                        <td>{{ item.av_price_disc_rate }}</td>
+                        <td>{{ item.spu_disc_rate }}</td>
+                        <td>{{ item.salesqty_disc_rate }}</td>
+                        <td>{{ item.salesmmt_disc_rate }}</td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin: 50px 0px;">
+            <span style="font-style: oblique">日度平均差异率占比</span>
+            <table class="table table-hover" style="margin: 15px 0px;">
+                <thead>
+                    <tr>
+                        <th>店铺名称</th>
+                        <th>平均单价</th>
+                        <th>商品数</th>
+                        <th>销售量</th>
+                        <th>销售额</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in day_ragezb_data %}
+                    <tr>
+                        <td>{{ item.shopname }}</td>
+                        <td>{{ item.av_price_disc_rate }}</td>
+                        <td>{{ item.spu_disc_rate }}</td>
+                        <td>{{ item.salesqty_disc_rate }}</td>
+                        <td>{{ item.salesmmt_disc_rate }}</td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- 平均差异率占比 -->
+    <div role="tabpanel" class="tab-pane" id="diff_rage_curves">
+        <div>
+            <div style="padding: 8px 3px;"  id="month_disc_rate">
+                <span style="font-style: oblique">月度差异率</span>
+                <div style="margin: 15px 0px;">
+                    <div style="width:530px;height:300px;float: left;" class="echarts" aid="av_price_disc_rate"></div>
+                    <div style="width:530px;height:300px;display: inline;" class="echarts" aid="spu_disc_rate"></div>
+                    <br>
+                    <div style="width:530px;height:300px;float: left;" class="echarts" aid="salesmmt_disc_rate"></div>
+                    <div style="width:530px;height:300px;display: inline;" class="echarts" aid="salesqty_disc_rate"></div>
+                </div>
+            </div>
+            <div style="padding: 8px 3px;"  id="day_disc_rate">
+                <span style="font-style: oblique">日度差异率</span>
+                <div style="margin: 15px 0px;">
+                    <div id="main1" style="width:530px;height:300px;display: inline;float: left;" class="echarts" aid="av_price_disc_rate"></div>
+                    <div id="main2" style="width:530px;height:300px;display: inline;" class="echarts" aid="spu_disc_rate"></div>
+                    <br>
+                    <div id="main3" style="width:530px;height:300px;display: inline;float: left;" class="echarts" aid="salesmmt_disc_rate"></div>
+                    <div id="main4" style="width:530px;height:300px;display: inline;" class="echarts" aid="salesqty_disc_rate"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% block js %}
+{#<script src="{{ STATIC_URL }}apps/dmreport/js/shop_diff_content.js?v={{ version }}"></script>#}
+<script>
+CONTENTS.month_data = '{{ month_rage_data|safe }}';
+CONTENTS.day_data = '{{ day_rage_data|safe }}';
+</script>
+{% endblock %}

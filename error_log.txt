@@ -1,0 +1,673 @@
+[2016-12-01 10:59:22] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/account/views.py", line 22, in login
+    return render(request, "account/login.html")
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/Library/Python/2.7/site-packages/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 209, in render
+    with context.bind_template(self):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/Library/Python/2.7/site-packages/django/template/context.py", line 241, in bind_template
+    updates.update(processor(self.request))
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/website/context_processors.py", line 16, in variable
+    "version": settings.STATIC_FILE_VERSION,
+  File "/Library/Python/2.7/site-packages/django/conf/__init__.py", line 49, in __getattr__
+    return getattr(self._wrapped, name)
+AttributeError: 'Settings' object has no attribute 'STATIC_FILE_VERSION'
+
+[2016-12-01 12:03:38] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/common/views.py", line 16, in static_html
+    return render(request, template_name)
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/Library/Python/2.7/site-packages/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 209, in render
+    with context.bind_template(self):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/Library/Python/2.7/site-packages/django/template/context.py", line 241, in bind_template
+    updates.update(processor(self.request))
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/website/context_processors.py", line 21, in variable
+    "menus": account_api.get_menus(request),
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/account/api.py", line 16, in get_menus
+    menu_list = get_menu_list(request)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/account/api.py", line 33, in get_menu_list
+    menu_list = list(menu_query_set.order_by("id", "seq"))
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 162, in __iter__
+    self._fetch_all()
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 965, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 1085, in iterator
+    for row in self.query.get_compiler(self.db).results_iter():
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/compiler.py", line 794, in results_iter
+    results = self.execute_sql(MULTI)
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/compiler.py", line 840, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Python/2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/Library/Python/2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Python/2.7/site-packages/django/db/utils.py", line 98, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/Library/Python/2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Python/2.7/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Python/2.7/site-packages/MySQL_python-1.2.4b4-py2.7-macosx-10.11-intel.egg/MySQLdb/cursors.py", line 202, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Python/2.7/site-packages/MySQL_python-1.2.4b4-py2.7-macosx-10.11-intel.egg/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1054, "Unknown column 'auth_menu.is_visible' in 'where clause'")
+
+[2016-12-05 12:20:59] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 21, in item_diff_main
+    render(request, "/dmreport/item_diff_main.html", dict(data_source=data_source, category_list=category_list))
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 98, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 46, in get_template
+    raise TemplateDoesNotExist(template_name)
+TemplateDoesNotExist: /dmreport/item_diff_main.html
+
+[2016-12-05 12:21:37] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 21, in item_diff_main
+    render(request, "dmreport/item_diff_main.html", dict(data_source=data_source, category_list=category_list))
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/Library/Python/2.7/site-packages/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 210, in render
+    return self._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 151, in render
+    template = context.template.engine.get_template(template)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 167, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 146, in find_template
+    raise TemplateDoesNotExist(name)
+TemplateDoesNotExist: article/article_list.html
+
+[2016-12-05 12:21:39] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 21, in item_diff_main
+    render(request, "dmreport/item_diff_main.html", dict(data_source=data_source, category_list=category_list))
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/Library/Python/2.7/site-packages/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 210, in render
+    return self._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 151, in render
+    template = context.template.engine.get_template(template)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 167, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 146, in find_template
+    raise TemplateDoesNotExist(name)
+TemplateDoesNotExist: article/article_list.html
+
+[2016-12-06 05:28:41] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 21, in item_diff_main
+    return render(request, "dmreport/item_diff_main.html", dict(data_source=data_source, category_list=category_list))
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/Library/Python/2.7/site-packages/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 210, in render
+    return self._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 151, in render
+    template = context.template.engine.get_template(template)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 167, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 141, in find_template
+    source, display_name = loader(name, dirs)
+  File "/Library/Python/2.7/site-packages/django/template/loaders/base.py", line 13, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/Library/Python/2.7/site-packages/django/template/loaders/base.py", line 23, in load_template
+    template = Template(source, origin, template_name, self.engine)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = engine.compile_string(template_string, origin)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 261, in compile_string
+    return parser.parse()
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 342, in parse
+    compiled_result = compile_func(self, token)
+  File "/Library/Python/2.7/site-packages/django/template/defaulttags.py", line 1163, in load
+    (taglib, e))
+TemplateSyntaxError: 'filters' is not a valid tag library: Template library filters not found, tried django.templatetags.filters,django.contrib.admin.templatetags.filters,django.contrib.staticfiles.templatetags.filters
+
+[2016-12-06 05:35:00] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 21, in item_diff_main
+    return render(request, "dmreport/item_diff_main.html", dict(data_source=data_source, category_list=category_list))
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/Library/Python/2.7/site-packages/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 210, in render
+    return self._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 202, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 905, in render
+    bit = self.render_node(node, context)
+  File "/Library/Python/2.7/site-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 151, in render
+    template = context.template.engine.get_template(template)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 167, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 141, in find_template
+    source, display_name = loader(name, dirs)
+  File "/Library/Python/2.7/site-packages/django/template/loaders/base.py", line 13, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/Library/Python/2.7/site-packages/django/template/loaders/base.py", line 23, in load_template
+    template = Template(source, origin, template_name, self.engine)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = engine.compile_string(template_string, origin)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 261, in compile_string
+    return parser.parse()
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 342, in parse
+    compiled_result = compile_func(self, token)
+  File "/Library/Python/2.7/site-packages/django/template/defaulttags.py", line 1163, in load
+    (taglib, e))
+TemplateSyntaxError: 'filters' is not a valid tag library: Template library filters not found, tried django.templatetags.filters,django.contrib.admin.templatetags.filters,django.contrib.staticfiles.templatetags.filters
+
+[2016-12-16 03:49:51] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 223, in category_diff_content
+    param["min_rate"] = float(min_rate) / 100.0
+UnicodeEncodeError: 'decimal' codec can't encode character u'\uff0d' in position 0: invalid decimal Unicode string
+
+[2016-12-16 03:52:23] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 223, in category_diff_content
+    param["min_rate"] = float(min_rate) / 100.0
+UnicodeEncodeError: 'decimal' codec can't encode character u'\uff0d' in position 0: invalid decimal Unicode string
+
+[2016-12-19 08:08:16] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 147, in shop_diff_content
+    month_ragezb_data = api.item_month_ragezb_data(param)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 102, in item_month_ragezb_data
+    hsql = sql.ITEM_MONTH_RAGEZB.format(**param)
+KeyError: u'category_id'
+
+[2016-12-19 08:09:27] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 152, in shop_diff_content
+    day_ragezb_data = api.shop_day_ragezb_data(param)
+AttributeError: 'module' object has no attribute 'shop_day_ragezb_data'
+
+[2016-12-20 03:10:05] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 164, in shop_diff_content
+    month_rage_data=json.dumps(month_rage_data),
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/__init__.py", line 243, in dumps
+    return _default_encoder.encode(obj)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/encoder.py", line 184, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError:       shopid daterange  av_price_disc_rate  salesmmt_disc_rate  \
+0   69302618   2016-01                   0                   0   
+1   69302618   2016-02                   0                   0   
+2   69302618   2016-03                   0                   0   
+3   69302618   2016-04                   0                   0   
+4   69302618   2016-05                   0                   0   
+5   69302618   2016-06                   0                   0   
+6   69302618   2016-07                   0                   0   
+7   69302618   2016-08                   0                   0   
+8   69302618   2016-09                   0                   0   
+9   69302618   2016-10                   0                   0   
+10  69302618   2016-11                   0                   0   
+11  66098091   2016-01                   0                   0   
+12  66098091   2016-02                   0                   0   
+13  66098091   2016-03                   0                   0   
+14  66098091   2016-04                   0                   0   
+15  66098091   2016-05                   0                   0   
+16  66098091   2016-06                   0                   0   
+17  66098091   2016-07                   0                   0   
+18  66098091   2016-08                   0                   0   
+19  66098091   2016-09                   0                   0   
+20  66098091   2016-10                   0                   0   
+21  66098091   2016-11                   0                   0   
+22  73401272   2016-01                   0                   0   
+23  73401272   2016-02                   0                   0   
+24  73401272   2016-03                   0                   0   
+25  73401272   2016-04                   0                   0   
+26  73401272   2016-05                   0                   0   
+27  73401272   2016-06                   0                   0   
+28  73401272   2016-07                   0                   0   
+29  73401272   2016-08                   0                   0   
+30  73401272   2016-09                   0                   0   
+31  73401272   2016-10                   0                   0   
+32  73401272   2016-11                   0                   0   
+
+    salesqty_disc_rate  spu_disc_rate  
+0                    0              0  
+1                    0              0  
+2                    0              0  
+3                    0              0  
+4                    0              0  
+5                    0              0  
+6                    0              0  
+7                    0              0  
+8                    0              0  
+9                    0              0  
+10                   0              0  
+11                   0              0  
+12                   0              0  
+13                   0              0  
+14                   0              0  
+15                   0              0  
+16                   0              0  
+17                   0              0  
+18                   0              0  
+19                   0              0  
+20                   0              0  
+21                   0              0  
+22                   0              0  
+23                   0              0  
+24                   0              0  
+25                   0              0  
+26                   0              0  
+27                   0              0  
+28                   0              0  
+29                   0              0  
+30                   0              0  
+31                   0              0  
+32                   0              0   is not JSON serializable
+
+[2016-12-20 05:40:35] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 151, in shop_diff_content
+    month_rage_data = api.shop_month_rage_data(param, daterange_list)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 216, in shop_month_rage_data
+    day_rage_data = df2echar(all_data_df, daterange_list, zhibiaos)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 249, in df2echar
+    shopname_list = df.shopname.unique.tolist()
+AttributeError: 'function' object has no attribute 'tolist'
+
+[2016-12-20 06:16:34] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 159, in shop_diff_content
+    day_rage_data = api.shop_day_rage_data(param, daterange_list)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 232, in shop_day_rage_data
+    all_data_df = get_all_data(data_list, daterange_list, shopids)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 275, in get_all_data
+    all_data_df = index_df.merge(data_df, how="left", on=["shopid", "daterange"]).fillna(0)
+  File "/Library/Python/2.7/site-packages/pandas/core/frame.py", line 4421, in merge
+    copy=copy, indicator=indicator)
+  File "/Library/Python/2.7/site-packages/pandas/tools/merge.py", line 34, in merge
+    copy=copy, indicator=indicator)
+  File "/Library/Python/2.7/site-packages/pandas/tools/merge.py", line 199, in __init__
+    self.join_names) = self._get_merge_keys()
+  File "/Library/Python/2.7/site-packages/pandas/tools/merge.py", line 423, in _get_merge_keys
+    right_keys.append(right[rk]._values)
+  File "/Library/Python/2.7/site-packages/pandas/core/frame.py", line 1992, in __getitem__
+    return self._getitem_column(key)
+  File "/Library/Python/2.7/site-packages/pandas/core/frame.py", line 1999, in _getitem_column
+    return self._get_item_cache(key)
+  File "/Library/Python/2.7/site-packages/pandas/core/generic.py", line 1345, in _get_item_cache
+    values = self._data.get(item)
+  File "/Library/Python/2.7/site-packages/pandas/core/internals.py", line 3225, in get
+    loc = self.items.get_loc(item)
+  File "/Library/Python/2.7/site-packages/pandas/indexes/base.py", line 1878, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas/index.pyx", line 137, in pandas.index.IndexEngine.get_loc (pandas/index.c:4027)
+  File "pandas/index.pyx", line 157, in pandas.index.IndexEngine.get_loc (pandas/index.c:3891)
+  File "pandas/hashtable.pyx", line 675, in pandas.hashtable.PyObjectHashTable.get_item (pandas/hashtable.c:12408)
+  File "pandas/hashtable.pyx", line 683, in pandas.hashtable.PyObjectHashTable.get_item (pandas/hashtable.c:12359)
+KeyError: u'shopid'
+
+[2016-12-20 11:09:01] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 209, in category_diff_content
+    if not data_source:
+KeyError: u'categoryid'
+
+[2016-12-20 11:12:42] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 231, in category_diff_content
+    month_rage_data = api.category_month_rage_data(param)
+TypeError: category_month_rage_data() takes exactly 2 arguments (1 given)
+
+[2016-12-21 08:13:29] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 232, in category_diff_content
+    month_rage_data = api.category_month_rage_data(param, daterange_list)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 440, in category_month_rage_data
+    all_data_df = category_all_data_df(data_list, columns, category_list, daterange_list, shop_list)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 363, in category_all_data_df
+    index_pf = pd.DataFrame(list(itertools.product([_[0] for _ in shop_list], category_list, daterange)), columns=["shopid", "categoryid", "daterange"])
+KeyError: 0
+
+[2016-12-21 08:51:35] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 232, in category_diff_content
+    month_rage_data = api.category_month_rage_data(param, daterange_list)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 445, in category_month_rage_data
+    month_rage_data = category_df2echar(all_data_df, shop_list, category_list, zhibiaos, daterange_list)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 332, in category_df2echar
+    s_df = all_data_df[all_data_df.shopid == shop[0]]
+KeyError: 0
+
+[2016-12-21 08:57:24] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 233, in category_diff_content
+    month_ragezb_data = api.category_month_rage_shop_data(param, daterange_list)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 457, in category_month_rage_shop_data
+    data_list, columns = Hive().query(hsql, meta=True)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/tools/db/hive.py", line 38, in query
+    raise e
+Pyhs2Exception: "COMPILE FAILED: Semantic error: [Error 10842] Line 27:0 Expression not in GROUP BY key 'shopid'"
+
+[2016-12-21 09:06:56] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 233, in category_diff_content
+    month_ragezb_data = api.category_month_rage_shop_data(param, daterange_list)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 469, in category_month_rage_shop_data
+    day_rage_data = category_shop_df2echar(all_data_df, category_list, zhibiaos, daterange_list)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 420, in category_shop_df2echar
+    return dict(legend_data=shopname_list, xAxis_data=daterange_list, zhibiao_data_all=zhibiao_data_all)
+UnboundLocalError: local variable 'zhibiao_data_all' referenced before assignment
+
+[2016-12-21 09:16:45] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 233, in category_diff_content
+    month_ragezb_data = api.category_month_rage_shop_data(param, daterange_list)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 470, in category_month_rage_shop_data
+    day_rage_data = category_shop_df2echar(all_data_df, category_list, zhibiaos, daterange_list)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 421, in category_shop_df2echar
+    return dict(legend_data=shopname_list, xAxis_data=daterange_list, zhibiao_data_all=zhibiao_data_all)
+UnboundLocalError: local variable 'zhibiao_data_all' referenced before assignment
+
+[2016-12-21 09:19:46] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 242, in category_diff_content
+    category = api.get_category(category_id)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 53, in get_category
+    category = Category.objects.get(pk=category_id)
+  File "/Library/Python/2.7/site-packages/django/db/models/manager.py", line 127, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 325, in get
+    clone = self.filter(*args, **kwargs)
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 679, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 697, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/query.py", line 1310, in add_q
+    clause, require_inner = self._add_q(where_part, self.used_aliases)
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/query.py", line 1338, in _add_q
+    allow_joins=allow_joins, split_subq=split_subq,
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/query.py", line 1209, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/query.py", line 1102, in build_lookup
+    return final_lookup(lhs, rhs)
+  File "/Library/Python/2.7/site-packages/django/db/models/lookups.py", line 101, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/Library/Python/2.7/site-packages/django/db/models/lookups.py", line 139, in get_prep_lookup
+    return self.lhs.output_field.get_prep_lookup(self.lookup_name, self.rhs)
+  File "/Library/Python/2.7/site-packages/django/db/models/fields/__init__.py", line 1874, in get_prep_lookup
+    return super(IntegerField, self).get_prep_lookup(lookup_type, value)
+  File "/Library/Python/2.7/site-packages/django/db/models/fields/__init__.py", line 727, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/Library/Python/2.7/site-packages/django/db/models/fields/__init__.py", line 1868, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+
+[2016-12-21 09:20:45] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 242, in category_diff_content
+    category = api.get_category(category_id)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 53, in get_category
+    category = Category.objects.get(pk=category_id)
+  File "/Library/Python/2.7/site-packages/django/db/models/manager.py", line 127, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 325, in get
+    clone = self.filter(*args, **kwargs)
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 679, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 697, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/query.py", line 1310, in add_q
+    clause, require_inner = self._add_q(where_part, self.used_aliases)
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/query.py", line 1338, in _add_q
+    allow_joins=allow_joins, split_subq=split_subq,
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/query.py", line 1209, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/query.py", line 1102, in build_lookup
+    return final_lookup(lhs, rhs)
+  File "/Library/Python/2.7/site-packages/django/db/models/lookups.py", line 101, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/Library/Python/2.7/site-packages/django/db/models/lookups.py", line 139, in get_prep_lookup
+    return self.lhs.output_field.get_prep_lookup(self.lookup_name, self.rhs)
+  File "/Library/Python/2.7/site-packages/django/db/models/fields/__init__.py", line 1874, in get_prep_lookup
+    return super(IntegerField, self).get_prep_lookup(lookup_type, value)
+  File "/Library/Python/2.7/site-packages/django/db/models/fields/__init__.py", line 727, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/Library/Python/2.7/site-packages/django/db/models/fields/__init__.py", line 1868, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+
+[2016-12-21 09:28:25] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 240, in category_diff_content
+    month_ragezb_data = api.category_month_rage_shop_data(param, daterange_list, category_list)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 460, in category_month_rage_shop_data
+    all_data_df = category_all_data_shop_df(data_list, columns, category_list, shop_list, daterange_list)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 385, in category_all_data_shop_df
+    index_pf = pd.DataFrame(list(itertools.product([_["id"] for _ in category_list], [_["id"] for _ in shop_list], daterange)), columns=["categoryid", "shopid", "daterange"])
+TypeError: 'long' object has no attribute '__getitem__'
+
+[2016-12-21 09:33:09] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 239, in category_diff_content
+    month_rage_data = api.category_month_rage_data(param, daterange_list, category_list)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 435, in category_month_rage_data
+    all_data_df = category_all_data_df(data_list, columns, category_list, daterange_list, shop_list)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 361, in category_all_data_df
+    index_pf = pd.DataFrame(list(itertools.product([_["id"] for _ in shop_list], [_[id] for _ in category_list], daterange)), columns=["shopid", "categoryid", "daterange"])
+KeyError: <built-in function id>
+
+[2016-12-21 09:33:44] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 252, in category_diff_content
+    month_rage_data=json.dumps(month_rage_data),
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/__init__.py", line 243, in dumps
+    return _default_encoder.encode(obj)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/encoder.py", line 184, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: [{u'id': 1622L, u'name': u'\u88e4\u5b50'}, {u'id': 1623L, u'name': u'\u534a\u8eab\u88d9'}, {u'id': 1624L, u'name': u'\u5957\u88c5/\u5b66\u751f\u6821\u670d/\u5de5\u4f5c\u5236\u670d'}, {u'id': 1629L, u'name': u'\u5927\u7801\u5973\u88c5'}, {u'id': 162103L, u'name': u'\u6bdb\u8863'}, {u'id': 162104L, u'name': u'\u886c\u886b'}, {u'id': 162116L, u'name': u'\u857e\u4e1d\u886b/\u96ea\u7eba\u886b'}, {u'id': 162205L, u'name': u'\u725b\u4ed4\u88e4'}, {u'id': 50000671L, u'name': u'T\u6064'}, {u'id': 50000697L, u'name': u'\u6bdb\u9488\u7ec7\u886b'}, {u'id': 50000852L, u'name': u'\u4e2d\u8001\u5e74\u5973\u88c5'}, {u'id': 50008897L, u'name': u'\u897f\u88c5'}, {u'id': 50008898L, u'name': u'\u536b\u8863/\u7ed2\u886b'}, {u'id': 50008899L, u'name': u'\u7fbd\u7ed2\u670d'}, {u'id': 50008900L, u'name': u'\u68c9\u8863/\u68c9\u670d'}, {u'id': 50008901L, u'name': u'\u98ce\u8863'}, {u'id': 50008904L, u'name': u'\u76ae\u8863'}, {u'id': 50008905L, u'name': u'\u76ae\u8349'}, {u'id': 50008906L, u'name': u'\u5510\u88c5/\u6c11\u65cf\u670d\u88c5/\u821e\u53f0\u670d\u88c5'}, {u'id': 50010850L, u'name': u'\u8fde\u8863\u88d9'}, '...(remaining elements truncated)...'] is not JSON serializable
+
+[2016-12-21 09:48:44] [ERROR] Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/views.py", line 240, in category_diff_content
+    month_rage_shop_data = api.category_month_rage_shop_data(param, daterange_list, category_list)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 464, in category_month_rage_shop_data
+    day_rage_data = category_shop_df2echar(all_data_df, category_list, zhibiaos, daterange_list)
+  File "/Users/guoyuanpei/workspace/pworkspace/mpintranettool/apps/dmreport/api.py", line 418, in category_shop_df2echar
+    return dict(legend_data=[_["name"] for _ in shopname_list], xAxis_data=daterange_list, all_data=all_data)
+TypeError: string indices must be integers
+

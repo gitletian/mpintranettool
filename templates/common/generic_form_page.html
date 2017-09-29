@@ -1,0 +1,20 @@
+{% extends 'common/page_base.html' %}
+{% block content %}
+<div class="row">
+    <div class="ibox">
+        <div class="ibox-title">
+            <h5>{{ menuname }}</h5>
+        </div>
+        <div class="ibox-content">
+            {% block form %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{{ STATIC_URL }}js/jquery.numeric.js"></script>
+<script src="{{ STATIC_URL }}inspinia/js/bootstrap-typeahead.js"></script>
+    {% block form_js %}
+    {% endblock %}
+{% endblock %}

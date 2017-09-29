@@ -1,0 +1,16 @@
+INSERT INTO attr_value (industry_id, category_id, attr_id, attr_name, is_multi, attr_value, flag, is_tag) VALUES (16, 50008900,  100, '通勤', false, 'OL风格,民族风,宫廷,复古,英伦,文艺,乡村,韩版,简约,淑女', 'M', 'y');
+INSERT INTO attr_value (industry_id, category_id, attr_id, attr_name, is_multi, attr_value, flag, is_tag) VALUES (16, 50008905,  100, '通勤', false, 'OL风格,民族风,宫廷,复古,英伦,文艺,乡村,韩版,简约,淑女', 'M', 'y');
+INSERT INTO attr_value (industry_id, category_id, attr_id, attr_name, is_multi, attr_value, flag, is_tag) VALUES (16, 50010850,  100, '通勤', false, 'OL风格,民族风,宫廷,复古,英伦,文艺,乡村,韩版,简约,淑女', 'M', 'y');
+INSERT INTO attr_value (industry_id, category_id, attr_id, attr_name, is_multi, attr_value, flag, is_tag) VALUES (16, 50008898,  100, '通勤', false, 'OL风格,民族风,宫廷,复古,英伦,文艺,乡村,韩版,简约,淑女', 'M', 'y');
+INSERT INTO attr_value (industry_id, category_id, attr_id, attr_name, is_multi, attr_value, flag, is_tag) VALUES (16, 1623,  100, '通勤', false, 'OL风格,民族风,宫廷,复古,英伦,文艺,乡村,韩版,简约,淑女', 'M', 'y');
+INSERT INTO attr_value (industry_id, category_id, attr_id, attr_name, is_multi, attr_value, flag, is_tag) VALUES (16, 1629,  100, '通勤', false, 'OL风格,民族风,宫廷,复古,英伦,文艺,乡村,韩版,简约,淑女', 'M', 'y');
+INSERT INTO attr_value (industry_id, category_id, attr_id, attr_name, is_multi, attr_value, flag, is_tag) VALUES (16, 50008899,  100, '通勤', false, 'OL风格,民族风,宫廷,复古,英伦,文艺,乡村,韩版,简约,淑女', 'M', 'y');
+INSERT INTO attr_value (industry_id, category_id, attr_id, attr_name, is_multi, attr_value, flag, is_tag) VALUES (16, 50008901,  100, '通勤', false, 'OL风格,民族风,宫廷,复古,英伦,文艺,乡村,韩版,简约,淑女', 'M', 'y');
+INSERT INTO attr_value (industry_id, category_id, attr_id, attr_name, is_multi, attr_value, flag, is_tag) VALUES (16, 162116,  100, '通勤', false, 'OL风格,民族风,宫廷,复古,英伦,文艺,乡村,韩版,简约,淑女', 'M', 'y');
+INSERT INTO attr_value (industry_id, category_id, attr_id, attr_name, is_multi, attr_value, flag, is_tag) VALUES (16, 50000852,  100, '通勤', false, 'OL风格,民族风,宫廷,复古,英伦,文艺,乡村,韩版,简约,淑女', 'M', 'y');
+INSERT INTO attr_value (industry_id, category_id, attr_id, attr_name, is_multi, attr_value, flag, is_tag) VALUES (16, 162201,  100, '通勤', false, 'OL风格,民族风,宫廷,复古,英伦,文艺,乡村,韩版,简约,淑女', 'M', 'y');
+INSERT INTO attr_value (industry_id, category_id, attr_id, attr_name, is_multi, attr_value, flag, is_tag) VALUES (16, 50000671,  100, '通勤', false, 'OL风格,民族风,宫廷,复古,英伦,文艺,乡村,韩版,简约,淑女', 'M', 'y');
+INSERT INTO attr_value (industry_id, category_id, attr_id, attr_name, is_multi, attr_value, flag, is_tag) VALUES (16, 50000697,  100, '通勤', false, 'OL风格,民族风,宫廷,复古,英伦,文艺,乡村,韩版,简约,淑女', 'M', 'y');
+INSERT INTO attr_value (industry_id, category_id, attr_id, attr_name, is_multi, attr_value, flag, is_tag) VALUES (16, 121434004,  100, '通勤', false, 'OL风格,民族风,宫廷,复古,英伦,文艺,乡村,韩版,简约,淑女', 'M', 'y');
+INSERT INTO attr_value (industry_id, category_id, attr_id, attr_name, is_multi, attr_value, flag, is_tag) VALUES (16, 162104,  100, '通勤', false, 'OL风格,民族风,宫廷,复古,英伦,文艺,乡村,韩版,简约,淑女', 'M', 'y');
+INSERT INTO attr_value (industry_id, category_id, attr_id, attr_name, is_multi, attr_value, flag, is_tag) VALUES (16, 50013194,  100, '通勤', false, 'OL风格,民族风,宫廷,复古,英伦,文艺,乡村,韩版,简约,淑女', 'M', 'y');

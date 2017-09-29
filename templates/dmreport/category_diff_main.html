@@ -1,0 +1,95 @@
+{% extends 'common/page_base.html' %}
+
+{% block css %}
+    <link href="{{ STATIC_URL }}plugins/calendar-master/css/calendar.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="ibox">
+        <div class="ibox-title">
+            <h5>{{ menuname }}</h5>
+        </div>
+        <div class="ibox-content">
+            <div>
+                <form id="form" method="post">
+                    <div class="form-inline m-b">
+                        <select name="data_source" class="form-control m-r" style="width: 150px" >
+                            <option hidden value="">核查数据源</option>
+                            {% for data in data_source %}
+                            <option value="{{ data.id }}">{{ data.name }}</option>
+                            {% endfor %}
+                       </select>
+
+                        <div class="input-daterange input-group" style="margin-left: 10px;">
+                            <input type="text" class="input-sm form-control" name="min_qty" style="width: 70px" placeholder="剔除销售量小于N的数据"/>
+                        </div>
+
+                        <div class="input-daterange input-group" id="diff" style="margin-left: 10px;">
+                            <input type="text" class="input-sm form-control" name="min_rate" value="" style="width: 100px" placeholder="差异率下限"/>
+                            <span class="input-group-addon">%</span>
+                        </div>
+                        <div class="input-group" style="margin-left: -3px;margin-right: -5px;">
+                             <span class="input-group-addon" style="border: 0">~</span>
+                        </div>
+                        <div class="input-daterange input-group" id="diff">
+                            <input type="text" class="input-sm form-control" name="max_rate" value="" style="width: 100px" placeholder="差异率上限"/>
+                            <span class="input-group-addon">%</span>
+                        </div>
+
+                        <div class="input-group" style="margin-left: 20px;">
+                            <select name="category_id" class="form-control m-r" style="width: 140px;">
+                                <option hidden value="">选择品类</option>
+                                {% for category in category_list %}
+                                <option value="{{ category.id }}">{{ category.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="input-daterange input-group dateRange" style="margin-left: 10px;">
+                            <input type="text" class="input-sm form-control begin_date" name="min_date"  style="width: 80px" placeholder="开始月"/>
+                            <span class="input-group-addon">~</span>
+                            <input type="text" class="input-sm form-control end_date" name="max_date" style="width: 80px" placeholder="结束月"/>
+                        </div>
+
+                        <div class="input-daterange input-group" style="margin-left: 10px;">
+                            <input type="text" class="input-sm form-control" name="dates" style="width: 250px" placeholder="抽取天"/>
+                        </div>
+
+                        <button type="button" class="btn btn-sm btn-success m-l" id="btn_search">查询</button>
+
+                        </br>
+                        <div style="padding-top:15px;display: none" class = "dimension">
+                            店铺:
+                            <div class="checkbox" style="margin-left: 10px;" id="dimension_type">
+                                <label class="checkbox-inline"><input type="checkbox" href="66098091" checked="checked">珂莱蒂尔旗舰店</label>
+                                <label class="checkbox-inline"><input type="checkbox" href="69302618" checked="checked">naersi旗舰店</label>
+                                <label class="checkbox-inline"><input type="checkbox" href="73401272" checked="checked">lily官方旗舰店</label>
+                            </div>
+                        </div>
+                        </br>
+
+                        <div style="padding-top:15px;display: none" class = "dimension">
+                            核查维度:
+                            <div class="checkbox" style="margin-left: 10px;" id="dimension_type">
+                                <label class="checkbox-inline"><input type="checkbox" href="av_price_disc_rate" checked="checked">平均单价</label>
+                                <label class="checkbox-inline"><input type="checkbox" href="spu_disc_rate" checked="checked">商品数</label>
+                                <label class="checkbox-inline"><input type="checkbox" href="salesmmt_disc_rate" checked="checked">销售额</label>
+                                <label class="checkbox-inline"><input type="checkbox" href="salesqty_disc_rate" checked="checked">销量</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="div_content">
+{#                {% include 'dmreport/item_diff_content.html' %}#}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{{ STATIC_URL }}plugins/calendar-master/js/calendar.js"></script>
+<script src="{{ STATIC_URL }}plugins/echarts/echarts.js"></script>
+<script src="{{ STATIC_URL }}apps/dmreport/js/category_diff_main.js?v={{ version }}"></script>
+{% endblock %}

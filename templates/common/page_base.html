@@ -1,0 +1,38 @@
+{% extends 'common/base.html' %}
+{% block top %}
+<div class="pull-right m-r-lg form-inline" style="line-height: 50px; height: 50px;">
+    {{ user.username }}
+    <a href="/account/logout/" class="m-l text-white">
+        <i class="fa fa-sign-out"></i>退出
+    </a>
+</div>
+{% endblock %}
+{% block body %}
+<div id="wrapper">
+    <nav class="navbar-static-side menu-left" style="width: 150px">
+        <div class="sidebar-collapse">
+            <ul class="nav">
+                {% for first in menus %}
+                <li>
+                    <a class="{% if path == first.url %}on{% endif %}" href="{{ first.url|default:'javascript:' }}"><i class="fa fa-th-large"></i> <span class="nav-label">{{ first.name }}</span></a>
+                    <ul class="nav nav-second-level">
+                        {% for second in first.menus %}
+                        <li>
+                            <a class="{% if path == second.url %}on{% endif %}" href="{{ second.url|default:'javascript:' }}">{% if second.menus %}<i class="fa fa-angle-right"></i>{% endif %}{{ second.name }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+    <div id="page-wrapper">
+    {% block content %}
+    {% endblock %}
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+{#    <script src="{{ STATIC_URL }}common/js/base.js?v={{ version }}"></script>#}
+{% endblock %}
