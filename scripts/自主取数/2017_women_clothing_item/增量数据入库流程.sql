@@ -496,19 +496,22 @@ CREATE TABLE if not exists transforms.women_clothing_item_attr_add(
 ,mianliao    String
 ,lingzi    String
 ,fengge    String
+,shiyongnianling String
 ,errormessage STRING
 )
 STORED AS ORC
 ;
 
 
-add jar /home/script/normal_servers/serverudf/elengjing/Tagged_3.jar;
-drop temporary function if exists Tagged_e_n_18;
-create temporary function Tagged_e_n_18 as 'com.marcpoint.elengjing_extend.Tagged_e_n_18';
+add jar /home/script/normal_servers/serverudf/elengjing/Tagged_test_9.jar;
 
+drop temporary function if exists Tagged_extend;
+create temporary function Tagged_extend as 'com.marcpoint.elengjing_extend.Tagged_extend_1';
+
+set elengjing.var.separator_conf=new;
 insert into transforms.women_clothing_item_attr_add
 select
-Tagged_e_n_18(tw.ItemID,tw.categoryid,tw.shopid,tw.itemname,regexp_replace(tw.ItemAttrDesc, '\t', ' '))  as (itemid, shopid, categoryid, chongrongliang, hanrongliang, tuan, tuanwenhua, tianchongwu, gongyi, langxing, chengfenhanliang, baixing, caizhichengfen, kuanshi, banxing, lifubaixing, yaoxing, menyijin, xiuxing, xiuchang, qunxing, qunchang, kuxing, kuchang, jinxing, liliao, mianliao, lingzi, fengge, errormessage)
+Tagged_extend(tw.ItemID,tw.categoryid,tw.shopid,tw.itemname,regexp_replace(tw.ItemAttrDesc, '\t', ' '))  as (itemid, shopid, categoryid, chongrongliang, hanrongliang, tuan, tuanwenhua, tianchongwu, gongyi, langxing, chengfenhanliang, baixing, caizhichengfen, kuanshi, banxing, lifubaixing, yaoxing, menyijin, xiuxing, xiuchang, qunxing, qunchang, kuxing, kuchang, jinxing, liliao, mianliao, lingzi, fengge, shiyongnianling, errormessage)
 from
 transforms.women_clothing_item_new_dict_add tw where nvl(tw.itemattrdesc, '') != ''
 ;

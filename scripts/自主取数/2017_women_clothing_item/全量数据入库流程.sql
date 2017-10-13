@@ -1070,6 +1070,7 @@ CREATE TABLE if not exists elengjing.women_clothing_item_attr(
 ,mianliao    String
 ,lingzi    String
 ,fengge    String
+,shiyongnianling String
 ,errormessage STRING
 )
 STORED AS ORC
@@ -1082,13 +1083,13 @@ STORED AS ORC
 add jar /home/script/normal_servers/serverudf/elengjing/Tagged_test_9.jar;
 
 drop temporary function if exists Tagged_extend;
-create temporary function Tagged_extend as 'com.marcpoint.elengjing_extend.Tagged_extend';
+create temporary function Tagged_extend as 'com.marcpoint.elengjing_extend.Tagged_extend_1';
 
 
 set elengjing.var.separator_conf=old;
 insert into elengjing.women_clothing_item_attr
 select
-Tagged_extend(tw.ItemID,tw.categoryid,tw.shopid,tw.itemname,regexp_replace(tw.ItemAttrDesc, '\t', ' '))  as (itemid, shopid, categoryid, chongrongliang, hanrongliang, tuan, tuanwenhua, tianchongwu, gongyi, langxing, chengfenhanliang, baixing, caizhichengfen, kuanshi, banxing, lifubaixing, yaoxing, menyijin, xiuxing, xiuchang, qunxing, qunchang, kuxing, kuchang, jinxing, liliao, mianliao, lingzi, fengge, errormessage)
+Tagged_extend(tw.ItemID,tw.categoryid,tw.shopid,tw.itemname,regexp_replace(tw.ItemAttrDesc, '\t', ' '))  as (itemid, shopid, categoryid, chongrongliang, hanrongliang, tuan, tuanwenhua, tianchongwu, gongyi, langxing, chengfenhanliang, baixing, caizhichengfen, kuanshi, banxing, lifubaixing, yaoxing, menyijin, xiuxing, xiuchang, qunxing, qunchang, kuxing, kuchang, jinxing, liliao, mianliao, lingzi, fengge, shiyongnianling, errormessage)
 from
 transforms.women_clothing_item_description tw where tw.daterange < '2017-01-01'
 ;
@@ -1099,7 +1100,7 @@ transforms.women_clothing_item_description tw where tw.daterange < '2017-01-01'
 set elengjing.var.separator_conf=new;
 insert into elengjing.women_clothing_item_attr
 select
-Tagged_extend(tw.ItemID,tw.categoryid,tw.shopid,tw.itemname,regexp_replace(tw.ItemAttrDesc, '\t', ' '))  as (itemid, shopid, categoryid, chongrongliang, hanrongliang, tuan, tuanwenhua, tianchongwu, gongyi, langxing, chengfenhanliang, baixing, caizhichengfen, kuanshi, banxing, lifubaixing, yaoxing, menyijin, xiuxing, xiuchang, qunxing, qunchang, kuxing, kuchang, jinxing, liliao, mianliao, lingzi, fengge, errormessage)
+Tagged_extend(tw.ItemID,tw.categoryid,tw.shopid,tw.itemname,regexp_replace(tw.ItemAttrDesc, '\t', ' '))  as (itemid, shopid, categoryid, chongrongliang, hanrongliang, tuan, tuanwenhua, tianchongwu, gongyi, langxing, chengfenhanliang, baixing, caizhichengfen, kuanshi, banxing, lifubaixing, yaoxing, menyijin, xiuxing, xiuchang, qunxing, qunchang, kuxing, kuchang, jinxing, liliao, mianliao, lingzi, fengge, shiyongnianling, errormessage)
 from
 transforms.women_clothing_item_description tw where tw.daterange >= '2017-01-01'
 ;
@@ -1474,7 +1475,7 @@ CLUSTERED BY (itemid)  INTO 113 BUCKETS
 stored as orc
 ;
 
-set daterange=2017-09-06;
+set daterange=2017-10-11;
 
 insert into table transforms.sum_salesqty
 select
@@ -1595,7 +1596,6 @@ on t1.itemid = e.itemid
 left join
 elengjing_price.predict_daily d
 on t1.itemid = d.itemid
-
 ;
 
 
@@ -2531,7 +2531,7 @@ nohup sqoop --options-file /home/script/tmp/sqoop.txt
 
 
 
--------------------------------------- pg 备份 elengjing -----------------------------------------
+-------------------------------------- 要删除的item -----------------------------------------
 drop table if exists extract.itemid_del;
 CREATE TABLE if not exists extract.itemid_del(
      daterange   date
