@@ -105,7 +105,7 @@ FROM
 (
 SELECT
 m.*,
-ROW_NUMBER() OVER ( Partition By m.id ORDER BY m.created_at asc) AS rn
+ROW_NUMBER() OVER ( Partition By m.id ORDER BY m.created_at desc) AS rn
 FROM
 extract.medicine_post_inquiry_txt_add m
 ) t where t.rn = 1
@@ -226,8 +226,12 @@ where t1.is_host != 1
 -----------------------------------去水------------------------------------
 
 drop table if exists transforms.medicine_post_inquiry_noise_add;
-CREATE TABLE transforms.medicine_post_inquiry_noise_add like transforms.medicine_post_inquiry_noise;
-
+CREATE TABLE transforms.medicine_post_inquiry_noise_add(
+id string,
+is_noise string
+)
+STORED AS orc
+;
 
 add file /home/udflib/udf_denoise_inquiry_201703101802.py;
 

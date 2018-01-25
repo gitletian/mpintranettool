@@ -184,7 +184,12 @@ where a.rn=1
 ---------------------------------------------------------去水--------------------------------------------------------
 
 drop table if exists transforms.socialmedia_weibo_noise_add;
-CREATE TABLE transforms.socialmedia_weibo_noise_add like transforms.socialmedia_weibo_noise;
+CREATE TABLE transforms.socialmedia_weibo_noise_add(
+id string,
+is_noise int
+)
+STORED AS orc
+;
 
 
 add file /home/udflib/udf_denoise_weibo_201703101802.py;

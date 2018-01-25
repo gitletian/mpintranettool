@@ -240,7 +240,7 @@ FROM
 (
 SELECT
 m.*,
-ROW_NUMBER() OVER ( Partition By m.id ORDER BY m.created_at asc) AS rn
+ROW_NUMBER() OVER ( Partition By m.id ORDER BY m.created_at desc) AS rn
 FROM
 extract.medicine_post_txt_add m
 ) t where t.rn = 1

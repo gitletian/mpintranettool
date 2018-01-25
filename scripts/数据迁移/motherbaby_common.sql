@@ -74,7 +74,6 @@ CREATE TABLE  if not exists transforms.motherbaby_post_add_unique(
 )
 CLUSTERED BY (id) SORTED BY (id) INTO 113 BUCKETS
 STORED AS orc
-
 ;
 
 insert into table transforms.motherbaby_post_add_unique
@@ -107,7 +106,7 @@ FROM
 (
 SELECT
 m.*,
-ROW_NUMBER() OVER ( Partition By m.id ORDER BY m.created_at asc) AS rn
+ROW_NUMBER() OVER ( Partition By m.id ORDER BY m.created_at desc) AS rn
 FROM
 extract.motherbaby_post_txt_add m
 ) t where t.rn = 1
@@ -334,7 +333,7 @@ CREATE TABLE transforms.post_join_user(
     ,noise              string
 )
 PARTITIONED BY (platform_id string)
-CLUSTERED BY (id) SORTED BY (id) INTO 537 BUCKETS
+CLUSTERED BY (id) SORTED BY (id) INTO 113 BUCKETS
 STORED AS ORC
 ;
 
@@ -383,7 +382,12 @@ where nvl(t1.error_info , '') = ''
 ----------------------------------------------去水----------------------------------------------
 
 drop table if exists transforms.motherbaby_post_noise_add;
-CREATE TABLE transforms.motherbaby_post_noise_add like transforms.motherbaby_post_noise;
+CREATE TABLE transforms.motherbaby_post_noise_add(
+id string,
+is_noise string
+)
+STORED AS orc
+;
 
 
 add file /home/udflib/udf_denoise_motherbaby_201703161633.py;

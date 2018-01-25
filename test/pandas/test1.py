@@ -54,7 +54,7 @@ def test1():
     print df2.tail(2)  #察看最后几行数据 ,默认后五行
 
     print df2.index  #察看索引
-    print df2.columns  #察看 列名
+    print df2.columns.tolist()  #察看 列名
     print df2.values  #察看 数值
     print df2.describe()  #察看 描述性统计
 

@@ -107,7 +107,7 @@ FROM
 (
 SELECT
 m.*,
-ROW_NUMBER() OVER ( Partition By m.id ORDER BY m.created_at asc) AS rn
+ROW_NUMBER() OVER ( Partition By m.id ORDER BY m.created_at desc) AS rn
 FROM
 extract.motherbaby_post_txt_add m
 ) t where t.rn = 1
@@ -381,7 +381,12 @@ where nvl(t1.error_info , '') = ''
 ----------------------------------------------去水----------------------------------------------
 
 drop table if exists transforms.motherbaby_post_noise_add;
-CREATE TABLE transforms.motherbaby_post_noise_add like transforms.motherbaby_post_noise;
+CREATE TABLE transforms.motherbaby_post_noise_add(
+id string,
+is_noise string
+)
+STORED AS orc
+;
 
 
 add file /home/udflib/udf_denoise_motherbaby_201703161633.py;

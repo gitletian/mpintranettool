@@ -22,7 +22,7 @@ MJW_DATA_DIR=/home/data/mjw_item_201708/
 
 ###################################### ftp 数据 ######################################################
 echo_info "------------------------------- ${DATERANGE} data dowload is start...... ------------------------------------"
-[ -f "${COMBINE_DATA_DIR}/hy_item_${FILEDATE}.bz2" ] || wget --directory-prefix=$COMBINE_DATA_DIR  ftp://106.15.32.68/hy_item_${FILEDATE}.bz2 --ftp-user=user2 --ftp-password=******* || error_exit "ftp获取item_combine数据失败" "1"
+[ -f "${COMBINE_DATA_DIR}/hy_item_${FILEDATE}.bz2" ] || wget --directory-prefix=$COMBINE_DATA_DIR  ftp://106.15.32.68/hy_item_${FILEDATE}.bz2 --ftp-user=user2 --ftp-password=Marcpointuser1 || error_exit "ftp获取item_combine数据失败" "1"
 [ -f "${MJW_DATA_DIR}/hy_item_${FILEDATE}.zip" ] || wget --directory-prefix=$MJW_DATA_DIR  ftp://115.231.103.216/hy_item_${FILEDATE}.zip --ftp-user=marcpoint --ftp-password=******* || error_exit "ftp获取item_combine数据失败" "1"
 
 

@@ -58,7 +58,7 @@ def hive_query(sqls, is_select=True, meta=False):
     '''
     hive_connection = {
         "database": "elengjing",
-        "host": "192.168.110.122",
+        "host": "172.16.1.12",
         "user": "hive",
         "password": "hive1",
         "port": 10000,
@@ -67,9 +67,6 @@ def hive_query(sqls, is_select=True, meta=False):
     conn = pyhs2.connect(**hive_connection)
     try:
         with conn .cursor() as cursor:
-            cursor.execute('set ngmr.partition.automerge=true')
-            cursor.execute('set ngmr.partition.mergesize.mb=200')
-
             for sql in sqls.split(";"):
                 if sql.strip():
                     cursor.execute(sql.strip().encode('utf8'))
@@ -85,3 +82,16 @@ def hive_query(sqls, is_select=True, meta=False):
         raise e
     finally:
         conn.close()
+
+
+
+sql_test = '''
+select * from elengjing.category
+'''
+
+data = hive_query(sql_test)
+print(data)
+
+
+
+

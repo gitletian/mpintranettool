@@ -762,14 +762,14 @@ select
 from
 (
 SELECT
-t1.*, ROW_NUMBER() OVER ( Partition By platform_id, user_id ORDER BY created_at asc) AS rn
+t1.*, ROW_NUMBER() OVER ( Partition By platform_id, user_id ORDER BY created_at desc) AS rn
 FROM
 l_motherbaby.user t1
 ) t2 where t2.rn = 1
 ;
 
 drop table if exists l_motherbaby.user_bak;
-user l_motherbaby;
+use l_motherbaby;
 alter table l_motherbaby.user rename to l_motherbaby.user_bak;
 alter table l_motherbaby.user_unique rename to l_motherbaby.user;
 

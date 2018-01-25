@@ -1475,7 +1475,7 @@ CLUSTERED BY (itemid)  INTO 113 BUCKETS
 stored as orc
 ;
 
-set daterange=2017-10-11;
+set daterange=2017-10-13;
 
 insert into table transforms.sum_salesqty
 select
