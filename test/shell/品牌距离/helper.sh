@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 set -e
 . /etc/profile
@@ -16,8 +16,7 @@ output=${dir}/predict/${date}/output
 # if [ ! -d $output ]; then mkdir $output; fi
 [ ! -d $output ] && mkdir $output
 
-cd $dir
-categorys=(baby_diapers mother_health baby_milk baby_food baby_feedtool)
+categorys=(baby_diapers mother_health baby_milk baby_food baby_feedtool baby_care baby_health)
 
 for category in ${categorys[*]};
 do
@@ -26,12 +25,15 @@ do
     embedding_file_path=data/${category}/general2-300/reduced_vectors.txt
     rootdir=./predict/${date}/input/${category}
 
-    python ${dir}/at_lstm.py --date=$date --category=$category --dataset=$dataset --testset=$testset --embedding_file_path=$embedding_file_path --rootdir=$rootdir
+    if [ -d ${rootdir} ];
+    then
+        /home/marcpoint/anaconda3/bin/python ${dir}/at_lstm.py --date=$date --category=$category --dataset=$dataset --testset=$testset --embedding_file_path=$embedding_file_path --rootdir=$rootdir
+        now_date=`date '+%Y-%m-%d %H:%M:%S'`
+        echo  "${now_date}: ${date}-${category}预测成功!"
+    fi
 
-    now_date=`date '+%Y-%m-%d %H:%M:%S'`
-    echo  '${now_date}: ${date}-${category}预测成功!'
 done
 
-touch output=${dir}/predict/${date}/complete_flag
+touch ${dir}/predict/${date}/complete_flag
 
 
