@@ -8,4 +8,6 @@ sys.setdefaultencoding("utf-8")
 import jieba
 
 for line in sys.stdin:
-    print "|".join(jieba.cut(line.strip()))
+    id, content = line.strip().split('\t')
+    new_content = "|".join(jieba.cut(content))
+    print "\t".join([id, new_content])
