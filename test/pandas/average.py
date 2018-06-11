@@ -89,3 +89,22 @@ if __name__ == "__main__":
     # print(df[["a", "b"]].apply(avg_weighted, axis=0, args=(3)))
 
     # print df.columns
+
+
+df_data = df.loc[:, ["a", "b", "c"]]
+df_data2= df.loc[:, ["a", "b", "c"]]
+df_sum = df.loc[:, ["a", "b", "c"]].sum(axis=1)
+
+
+
+df_data2["all"] = df_data2.sum(axis=1)
+
+
+def f(row):
+    return [_ / row[3] for _ in row]
+
+
+df_data.apply(lambda x: x / x.sum(), axis=1)
+
+
+

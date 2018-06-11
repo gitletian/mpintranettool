@@ -13,6 +13,6 @@ for i in {1..182};
 do
 CURRENT_DAY=`date -d "$[1-i] day ago 2016-07-01" +%Y-%m-%d`
 echo $CURRENT_DAY
-beeline -u jdbc:hive2://mphd02:10000 -n hive -p hive1 --hivevar CURRENT_DAY=${CURRENT_DAY} -f /home/script/test/mpintranet/zzqs/mjw_day_stock_change.sql
+beeline -u jdbc:hive2://mphd02:10000 -n hive -p hive1 --hivevar CURRENT_DAY=${CURRENT_DAY} -f /home/guoyuanpei/mpintranet/zzqs/mjw_day_stock_change.sql
 echo 'end...'
 done;

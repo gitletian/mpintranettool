@@ -150,7 +150,7 @@ PARTITIONED BY (platform_id string)
 STORED AS orc;
 
 
-add file /home/script/test/mpintranet/gestation_compute_post_1.py;
+add file /home/guoyuanpei/mpintranet/gestation_compute_post_1.py;
 
 
 insert into transforms.motherbaby_post_add PARTITION(platform_id)

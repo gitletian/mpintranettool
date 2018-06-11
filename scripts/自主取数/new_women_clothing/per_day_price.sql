@@ -153,7 +153,7 @@ CLUSTERED BY (itemid) INTO 113 BUCKETS
 STORED AS ORC;
 
 
-add file /home/script/test/mpintranet/zzqs/combine_price_a7.py;
+add file /home/guoyuanpei/mpintranet/zzqs/combine_price_a7.py;
 
 insert into mpintranet.women_clothing_item_combine_price
 select
@@ -290,7 +290,7 @@ error_info string
 CLUSTERED BY (itemid) INTO 113 BUCKETS
 STORED AS ORC;
 
-add file /home/script/test/mpintranet/zzqs/day_stock_change7.py;
+add file /home/guoyuanpei/mpintranet/zzqs/day_stock_change7.py;
 
 
 insert into mpintranet.women_clothing_item_stock_change
@@ -393,7 +393,7 @@ STORED AS ORC;
 
 
 -- 4.2 产生月库变
-add jar /home/script/test/mpintranet/zzqs/skumonthchange1.jar;
+add jar /home/guoyuanpei/mpintranet/zzqs/skumonthchange1.jar;
 drop temporary function if exists test_udaf4;
 create temporary function test_udaf4 as 'com.marcpoint.elengjing.SkuMonthChange1';
 
@@ -524,7 +524,7 @@ error_info string
 CLUSTERED BY (itemid) INTO 113 BUCKETS
 STORED AS ORC;
 
-add file /home/script/test/mpintranet/zzqs/spu_price17.py;
+add file /home/guoyuanpei/mpintranet/zzqs/spu_price17.py;
 
 insert into mpintranet.women_clothing_item_spu_price
 

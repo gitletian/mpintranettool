@@ -94,7 +94,7 @@ STORED AS orc;
 
 
 
-add file /home/script/test/mpintranet/gestation_compute_new_3.py;
+add file /home/guoyuanpei/mpintranet/gestation_compute_new_3.py;
 
 insert into transforms.motherbaby_post PARTITION(platform_id)
 select
@@ -346,7 +346,7 @@ error_info string
 PARTITIONED BY (platform_id string)
 STORED AS orc;
 
-add file /home/script/test/mpintranet/gestation_compute_new_dict_1.py;
+add file /home/guoyuanpei/mpintranet/gestation_compute_new_dict_2.py;
 
 insert into transforms.motherbaby_post_add PARTITION(platform_id)
 select
@@ -376,7 +376,7 @@ TRANSFORM (
     ,baby_agethen
     ,platform_id
 )
-USING "python gestation_compute_new_dict_1.py"
+USING "python gestation_compute_new_dict_2.py"
 AS (
      id
     ,channel

@@ -3,7 +3,7 @@
 ---- 1、 计算用户表中 的birthday
 drop table if exists transforms.user_birthday_1;
 create table transforms.user_birthday_1 like l_motherbaby.user;
-add file /home/script/test/mpintranet/gestation_compute_user_9.py;
+add file /home/guoyuanpei/mpintranet/gestation_compute_user_9.py;
 
 
 set mapred.reduce.tasks = 200;
@@ -184,7 +184,7 @@ set mapred.reduce.tasks = 3000;
 
 
 drop table if exists l_motherbaby.post_subject;
-add file /home/script/test/mpintranet/gestation_compute_post_14.py;
+add file /home/guoyuanpei/mpintranet/gestation_compute_post_14.py;
 
 drop table if exists l_motherbaby.post_subject;
 CREATE TABLE  if not exists l_motherbaby.post_subject(

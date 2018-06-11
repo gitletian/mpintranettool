@@ -645,7 +645,7 @@ LOAD DATA LOCAL INPATH '/home/data/motherbaby_user/${hivevar:date_range}/*/*.txt
 
 
 
-add file /home/script/test/mpintranet/gestation_compute_user_10.py;
+add file /home/guoyuanpei/mpintranet/gestation_compute_user_10.py;
 
 insert into table l_motherbaby.user PARTITION(platform_id)
 select

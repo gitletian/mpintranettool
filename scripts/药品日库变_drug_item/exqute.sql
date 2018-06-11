@@ -64,7 +64,7 @@ CLUSTERED BY (itemid) INTO 113 BUCKETS
 STORED AS ORC;
 
 
-add file /home/script/test/mpintranet/zzqs/combine_price_a7.py;
+add file /home/guoyuanpei/mpintranet/zzqs/combine_price_a7.py;
 
 insert into mpintranet.drug_item_combine_price
 select
@@ -94,7 +94,7 @@ error_info string
 CLUSTERED BY (itemid) INTO 113 BUCKETS
 STORED AS ORC;
 
-add file /home/script/test/mpintranet/zzqs/day_stock_change7.py;
+add file /home/guoyuanpei/mpintranet/zzqs/day_stock_change7.py;
 
 
 insert into mpintranet.drug_item_stock_change

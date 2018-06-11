@@ -260,7 +260,7 @@ error_info string
 CLUSTERED BY (itemid) INTO 113 BUCKETS
 STORED AS ORC;
 
-add file /home/script/test/mpintranet/zzqs/mjw_day_stock_change.py;
+add file /home/guoyuanpei/mpintranet/zzqs/mjw_day_stock_change.py;
 
 
 insert into mpintranet.women_clothing_item_stock_change
